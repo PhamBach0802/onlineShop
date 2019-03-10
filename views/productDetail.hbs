@@ -1,0 +1,51 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+	<h1 class="h3 mb-0 text-gray-800">Product Id: {{product._id}}</h1>
+</div>
+<div class="row">
+	<div class="col-3">
+		<img src="{{product.image}}" class="img-fluid">
+		<img src="{{product.thumbnail}}" class="img-fluid">
+	</div>
+	<div class="col-9">
+		<div class="p-5">
+			<div class="text-center">
+				<h1 class="h4 text-gray-900 mb-4">Product detail</h1>
+			</div>
+			<form class="user">
+				<div class="form-group row">
+					<div class="col-sm-6 mb-3 mb-sm-0">
+						<label>Name</label>
+						<input type="text" class="form-control form-control-user" id="exampleFirstName"
+							placeholder="First Name" value="{{product.name}}">
+					</div>
+					<div class="col-sm-6">
+						<label>Category</label>
+						<input type="text" class="form-control form-control-user" id="exampleLastName"
+							placeholder="Last Name" value="{{product.category}}">
+					</div>
+				</div>
+				<div class="form-group row">
+
+					<label>Short Description</label>
+					<input type="text" class="form-control form-control-user" id="exampleLastName"
+						placeholder="Last Name" value="{{product.shortDescription}}">
+
+				</div>
+
+				<div class="form-group row">
+					<div class="col-sm-6 mb-3 mb-sm-0">
+						<label>Sale Price</label>
+						<input type="email" class="form-control form-control-user" id="exampleInputPassword"
+							placeholder="Password" value="{{product.salePrice}}">
+					</div>
+					<div class="col-sm-6">
+						<label>Original Price</label>
+						<input type="email" class="form-control form-control-user" id="exampleRepeatPassword"
+							placeholder="Repeat Password" value="{{product.originalPrice}}">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+[
+	{
+		"_id": "men",
+		"name": "men",
+		"iconName": "men",
+		"descriptions": "Men's wear"
+	},
+	{
+		"_id": "women",
+		"name": "women",
+		"iconName": "women",
+		"descriptions": "Women's fashion"
+	},
+	{
+		"_id": "accessories",
+		"name": "accessories",
+		"iconName": "accessories",
+		"descriptions": "Bags, shoes, hats and belts"
+	}
+]

@@ -2,16 +2,20 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+const mongoose = require('mongoose');
 var logger = require('morgan');
+const debug = require('debug')('app');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.set('view engine', 'hbs');
+// register partials
+const hbs = require('hbs');
+hbs.registerPartials(path.join(__dirname, '/views/partials'));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -19,8 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/admin', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -37,5 +40,17 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.start = (PORT, MONGO_URL) => {
+	mongoose
+		.connect(MONGO_URL)
+		.then(() => {
+			debug(MONGO_URL + ' database connect success');
+			app.listen(PORT, () => console.log('App started and listening on port', PORT));
+		})
+		.catch(err => {
+			debug('Database connection error:' + err);
+		});
+};
 
 module.exports = app;
