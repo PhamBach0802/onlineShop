@@ -1,20 +1,23 @@
 <script>
-    function categoryDetail(id) {
-        location.href = "/admin/categories/" + id;
-    }
+	function categoryDetail(id) {
+		location.href = "/admin/categories/" + id;
+	}
+	function categoryAddNew() {
+		location.href = "/addNewcategory";
+	}
 </script>
 
 <div class="container-fluid">
 	<!-- DataTales Example -->
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary">Categories</h6>
+			<h6 class="m-0 font-weight-bold text-primary">categories</h6>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
 				<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
 					<div class="row">
-						<div class="col-sm-12 col-md-6">
+						<div class="col-sm-12 col-md-5">
 							<div class="dataTables_length" id="dataTable_length"><label>Show <select
 										name="dataTable_length" aria-controls="dataTable"
 										class="custom-select custom-select-sm form-control form-control-sm">
@@ -24,11 +27,22 @@
 										<option value="100">100</option>
 									</select> entries</label></div>
 						</div>
-						<div class="col-sm-12 col-md-6">
+						<div class="col-sm-12 col-md-5">
 							<div id="dataTable_filter" class="dataTables_filter"><label>Search:<input type="search"
 										class="form-control form-control-sm" placeholder=""
 										aria-controls="dataTable"></label></div>
 						</div>
+
+						<div class="col-sm-12 col-md-2 text-center d-none d-md-inline">
+							<div class="row">
+								<label>Add new category
+									<button class="rounded-circle" id="category addNew" onclick="categoryAddNew()"><i
+											class="fa fa-plus-circle fa-lg"></i>
+									</button>
+								</label>
+							</div>
+						</div>
+
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
@@ -51,9 +65,8 @@
 								<tfoot>
 									<tr>
 										<th rowspan="1" colspan="1">Name</th>
-										<th rowspan="1" colspan="1">Icon Name  </th>
+										<th rowspan="1" colspan="1">Icon Name </th>
 										<th rowspan="1" colspan="1">Short Description</th>
-
 									</tr>
 								</tfoot>
 								<tbody>

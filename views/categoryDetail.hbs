@@ -1,37 +1,36 @@
 <!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
-	<h1 class="h3 mb-0 text-gray-800">Category Id: {{category._id}}</h1>
-</div>
-<div class="row">
-	<div class="col-3">
-		<img src="{{category.image}}" class="img-fluid">
-		<img src="{{category.thumbnail}}" class="img-fluid">
-	</div>
-	<div class="col-9">
-		<div class="p-5">
-			<div class="text-center">
-				<h1 class="h4 text-gray-900 mb-4">Category detail</h1>
-			</div>
-			<form class="user">
+<div class="container">
+	<h1>Category details</h1>
+	<div class="row">
+		<div class="col-3">
+			<h5 class="text-center text-primary mt-2">{{category.name}}</h4>
+				<form method="POST" action="/categoryDetail/{{category._id}}?_method=DELETE"
+					enctype="multipart/form-data">
+					<button type="submit" class="btn btn-primary">Delete</button>
+				</form>
+		</div>
+		<div class="col-9">
+			<form method="POST" action="/categoryDetail/{{category._id}}?_method=PATCH" enctype="multipart/form-data">
 				<div class="form-group row">
-					<div class="col-sm-4 mb-3 mb-sm-0">
-						<label>Name</label>
-						<input type="text" class="form-control form-control-user" id="exampleFirstName"
-							placeholder="First Name" value="{{category.name}}">
-					</div>
-					<div class="col-sm-4">
-						<label>Icon Name</label>
-						<input type="text" class="form-control form-control-user" id="exampleLastName"
-							placeholder="Last Name" value="{{category.iconName}}">
-					</div>
-
-					<div class="col-sm-4">
-						<label>Descriptions</label>
-						<input type="text" class="form-control form-control-user" id="exampleLastName"
-							placeholder="Last Name" value="{{category.descriptions}}">
+					<label class="col-sm-3 col-form-label">Name</label>
+					<div class="col-sm-9">
+						<input type="text" value="{{category.name}}" class="form-control" name="name"></input>
 					</div>
 				</div>
-			</form>
+				<div class="form-group row">
+					<label class="col-sm-3 col-form-label">icon Name</label>
+					<div class="col-sm-9">
+						<input type="text" value="{{category.iconName}}" class="form-control" name="iconName"></input>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-3 col-form-label">descriptions</label>
+					<div class="col-sm-9">
+						<input type="text" value="{{category.descriptions}}" class="form-control" name="descriptions"></input>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Save</button>
 		</div>
+		</form>
 	</div>
 </div>

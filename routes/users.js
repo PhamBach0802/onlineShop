@@ -1,41 +1,49 @@
-const fs = require("fs");
-const format = require("date-fns/format");
+var express = require('express');
+const User = require('../models/User');
+var userRouter = express.Router();
 
-var dataObj = {};
-fs.readFile("./data/users.json", "utf8", (err, data) => {
-	if (err) {
-		console.error(err);
-		return;
-	}
-	dataObj = JSON.parse(data);
+userRouter.get("/users", function(req, res, next) {
+	User.find({})
+		.exec()
+		.then(users => {
+			res.render("users", {
+				users: users,
+				layout: "layout"})
+			})
+		.catch(err => {
+			res.render(err);
+		});
+});
 
-	dataObj.forEach((value) => {
-		value.dobnew = new Date(value.dob);
+userRouter.get("/users/:id", function(req, res, next) {
+	const id = req.params.id;
+	User.findById(id)
+		.exec()
+		.then(user => {
+			res.render("userDetail", {
+				user: user,
+				layout: "layout"
+			});
+		})
+		.catch(err => {
+			res.render(err);
+		});
+});
 
-		value.dobnew = format(value.dobnew, "mm/dd/yyyy");
+userRouter.get("/addNewUser", function(req, res, next) {
+	res.render("addNewUser", {
+		layout: "layout"
 	});
 });
 
-module.exports = router => {
-	router.get("/users", function(req, res, next) {
-		res.render("users", {
-			users: dataObj,
-			layout: "layout"
-		});
-	});
-
-	router.get("/users/:id", function(req, res, next) {
-		const id = req.params.id;
-		let user = dataObj.find(value => {
-			if (value._id === id) {
-				return true;
-			}
-			return false;
-		});
-
-		res.render("userDetail", {
-			user: user,
-			layout: "layout"
-		});
-	});
-};
+userRouter.post("/addNewUser", (req, res) => {
+	console.log(req.body);
+	// User.create(req.body)
+	// 	.then(newUser => {
+	// 		res.send(newUser);
+	// 	})
+	// 	.catch(err => {
+	// 		res.send(err);
+	// 	});
+});
+module.exports = userRouter;

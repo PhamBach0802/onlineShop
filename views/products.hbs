@@ -1,7 +1,10 @@
 <script>
-    function productDetail(id) {
-        location.href = "/admin/products/" + id;
-    }
+	function productDetail(id) {
+		location.href = "/admin/products/" + id;
+	}
+	function productAddNew() {
+		location.href = "/addNewProduct";
+	}
 </script>
 
 <div class="container-fluid">
@@ -14,7 +17,7 @@
 			<div class="table-responsive">
 				<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
 					<div class="row">
-						<div class="col-sm-12 col-md-6">
+						<div class="col-sm-12 col-md-5">
 							<div class="dataTables_length" id="dataTable_length"><label>Show <select
 										name="dataTable_length" aria-controls="dataTable"
 										class="custom-select custom-select-sm form-control form-control-sm">
@@ -24,11 +27,22 @@
 										<option value="100">100</option>
 									</select> entries</label></div>
 						</div>
-						<div class="col-sm-12 col-md-6">
+						<div class="col-sm-12 col-md-5">
 							<div id="dataTable_filter" class="dataTables_filter"><label>Search:<input type="search"
 										class="form-control form-control-sm" placeholder=""
 										aria-controls="dataTable"></label></div>
 						</div>
+
+						<div class="col-sm-12 col-md-2 text-center d-none d-md-inline">
+							<div class="row">
+								<label>Add new product
+									<button class="rounded-circle" id="product addNew" onclick="productAddNew()"><i
+											class="fa fa-plus-circle fa-lg"></i>
+									</button>
+								</label>
+							</div>
+						</div>
+
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
@@ -57,7 +71,7 @@
 								<tfoot>
 									<tr>
 										<th rowspan="1" colspan="1">Image</th>
-										<th rowspan="1" colspan="1">Name  </th>
+										<th rowspan="1" colspan="1">Name </th>
 										<th rowspan="1" colspan="1">Short Description</th>
 										<th rowspan="1" colspan="1">Category</th>
 										<th rowspan="1" colspan="1">salePrice</th>

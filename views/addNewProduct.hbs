@@ -1,0 +1,51 @@
+<!-- Page Heading -->
+<div class="container">
+	<h1>Add new product</h1>
+	<form method="POST" action="/addNewProduct" enctype="multipart/form-data">
+		<div class="form-group row">
+			<label class="col-sm-3 col-form-label">Name</label>
+			<div class="col-sm-9">
+				<input type="text" value="{{product.name}}" class="form-control" name="name"></input>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-3 col-form-label">Image</label>
+			<div class="col-sm-9">
+				<input type="text" value="{{product.image}}" class="form-control" name="image"></input>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-3 col-form-label">Thumbnail</label>
+			<div class="col-sm-9">
+				<input type="text" value="{{product.thumbnail}}" class="form-control" name="thumbnail"></input>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-3 col-form-label">Short description</label>
+			<div class="col-sm-9">
+				<input type="text" value="{{product.shortDescription}}" class="form-control"
+					name="shortDescription"></input>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-3 col-form-label">Category</label>
+			<div class="col-sm-9">
+				<input type="text" value="{{product.category}}" class="form-control" name="category"></input>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-3 col-form-label">Sale price</label>
+			<div class="col-sm-9">
+				<input type="number" value="{{product.salePrice}}" class="form-control" name="salePrice"></input>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-3 col-form-label">Origin price</label>
+			<div class="col-sm-9">
+				<input type="number" value="{{product.originalPrice}}" class="form-control"
+					name="originalPrice"></input>
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary">Save</button>
+	</form>
+</div>

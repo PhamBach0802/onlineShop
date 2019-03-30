@@ -1,51 +1,65 @@
 <!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
-	<h1 class="h3 mb-0 text-gray-800">Product Id: {{product._id}}</h1>
-</div>
-<div class="row">
-	<div class="col-3">
-		<img src="{{product.image}}" class="img-fluid">
-		<img src="{{product.thumbnail}}" class="img-fluid">
-	</div>
-	<div class="col-9">
-		<div class="p-5">
-			<div class="text-center">
-				<h1 class="h4 text-gray-900 mb-4">Product detail</h1>
-			</div>
-			<form class="user">
-				<div class="form-group row">
-					<div class="col-sm-6 mb-3 mb-sm-0">
-						<label>Name</label>
-						<input type="text" class="form-control form-control-user" id="exampleFirstName"
-							placeholder="First Name" value="{{product.name}}">
-					</div>
-					<div class="col-sm-6">
-						<label>Category</label>
-						<input type="text" class="form-control form-control-user" id="exampleLastName"
-							placeholder="Last Name" value="{{product.category}}">
-					</div>
-				</div>
-				<div class="form-group row">
-
-					<label>Short Description</label>
-					<input type="text" class="form-control form-control-user" id="exampleLastName"
-						placeholder="Last Name" value="{{product.shortDescription}}">
-
-				</div>
-
-				<div class="form-group row">
-					<div class="col-sm-6 mb-3 mb-sm-0">
-						<label>Sale Price</label>
-						<input type="email" class="form-control form-control-user" id="exampleInputPassword"
-							placeholder="Password" value="{{product.salePrice}}">
-					</div>
-					<div class="col-sm-6">
-						<label>Original Price</label>
-						<input type="email" class="form-control form-control-user" id="exampleRepeatPassword"
-							placeholder="Repeat Password" value="{{product.originalPrice}}">
-					</div>
-				</div>
-			</form>
+<div class="container">
+	<h1>Product details</h1>
+	<div class="row">
+		<div class="col-3">
+			<img src="{{product.image}}" class="img-fluid">
+			<img src="{{product.thumbnail}}" class="img-fluid">
+			<h5 class="text-center text-primary mt-2">{{product.name}}</h4>
+				<form method="POST" action="/productDetail/{{product._id}}?_method=DELETE"
+					enctype="multipart/form-data">
+					<button type="submit" class="btn btn-primary">Delete</button>
+				</form>
 		</div>
+		<div class="col-9">
+			<form method="POST" action="/productDetail/{{product._id}}?_method=PATCH" enctype="multipart/form-data">
+				<div class="form-group row">
+					<label class="col-sm-3 col-form-label">Name</label>
+					<div class="col-sm-9">
+						<input type="text" value="{{product.name}}" class="form-control" name="name"></input>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-3 col-form-label">Image</label>
+					<div class="col-sm-9">
+						<input type="text" value="{{product.image}}" class="form-control" name="image"></input>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-3 col-form-label">Thumbnail</label>
+					<div class="col-sm-9">
+						<input type="text" value="{{product.thumbnail}}" class="form-control" name="thumbnail"></input>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-3 col-form-label">Short description</label>
+					<div class="col-sm-9">
+						<input type="text" value="{{product.shortDescription}}" class="form-control"
+							name="shortDescription"></input>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-3 col-form-label">Category</label>
+					<div class="col-sm-9">
+						<input type="text" value="{{product.category}}" class="form-control" name="category"></input>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-3 col-form-label">Sale price</label>
+					<div class="col-sm-9">
+						<input type="number" value="{{product.salePrice}}" class="form-control"
+							name="salePrice"></input>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-3 col-form-label">Origin price</label>
+					<div class="col-sm-9">
+						<input type="number" value="{{product.originalPrice}}" class="form-control"
+							name="originalPrice"></input>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Save</button>
+		</div>
+		</form>
 	</div>
 </div>

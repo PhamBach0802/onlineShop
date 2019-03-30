@@ -1,35 +1,35 @@
-const fs = require("fs");
 const format = require("date-fns/format");
+const Category = require('../models/Category');
+var express = require('express');
+var categoryRouter = express.Router();
 
-var dataObj = {};
-fs.readFile("./data/categories.json", "utf8", (err, data) => {
-	if (err) {
-		console.error(err);
-		return;
-	}
-	dataObj = JSON.parse(data);
+categoryRouter.get("/categories", function(req, res, next) {
+	Category.find({})
+			.exec()
+			.then(categories => {
+				res.render("categories", {
+					categories: categories,
+					layout: "layout"
+				});
+			})
+			.catch(err => {
+				res.render(err);
+			});
 });
 
-module.exports = router => {
-	router.get("/categories", function(req, res, next) {
-		res.render("categories", {
-			categories: dataObj,
-			layout: "layout"
-		});
-	});
+categoryRouter.get("/categories/:id", function(req, res, next) {
+	const id = req.params.id;
+	Category.findById(id)
+			.exec()
+			.then(category => {
+				res.render("categoryDetail", {
+					category: category,
+					layout: "layout"
+				});
+			})
+			.catch(err => {
+				res.render(err);
+			})
+});
 
-	router.get("/categories/:id", function(req, res, next) {
-		const id = req.params.id;
-		let category = dataObj.find(value => {
-			if (value._id === id) {
-				return true;
-			}
-			return false;
-		});
-
-		res.render("categoryDetail", {
-			category: category,
-			layout: "layout"
-		});
-	});
-};
+module.exports = categoryRouter;

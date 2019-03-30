@@ -1,35 +1,52 @@
-const fs = require("fs");
 const format = require("date-fns/format");
+const Product = require("../models/Product");
+var express = require("express");
+var productRouter = express.Router();
 
-var dataObj = {};
-fs.readFile("./data/products.json", "utf8", (err, data) => {
-	if (err) {
-		console.error(err);
-		return;
+productRouter.get("/products", function(req, res, next) {
+	var obj = JSON.parse(req.query.filter);
+	console.log(obj);
+	if(req.query != 'undefined'){
+		Product.find({})
+				.where("salePrice").equals(obj.where.salePrice)
+				.limit(obj.limit)
+				.skip(obj.offset)
+				.exec()
+				.then(products => {
+					console.log(products);
+					res.json(products);
+				})
+				.catch(err => {
+					res.send(err);
+				})
 	}
-	dataObj = JSON.parse(data);
+	else{
+		Product.find({})
+		.exec()
+		.then(products => {
+			res.render("products", {
+				products: products,
+				layout: "layout"
+			});
+		})
+		.catch(err => {
+			res.render(err);
+		});
+	}
 });
 
-module.exports = router => {
-	router.get("/products", function(req, res, next) {
-		res.render("products", {
-			products: dataObj,
-			layout: "layout"
+productRouter.get("/products/:id", function(req, res, next) {
+	const id = req.params.id;
+	Product.findById(id)
+		.exec()
+		.then(product => {
+			res.render("productDetail", {
+				product: product,
+				layout: "layout"
+			});
+		})
+		.catch(err => {
+			res.render(err);
 		});
-	});
-
-	router.get("/products/:id", function(req, res, next) {
-		const id = req.params.id;
-		let product = dataObj.find(value => {
-			if (value._id === id) {
-				return true;
-			}
-			return false;
-		});
-
-		res.render("productDetail", {
-			product: product,
-			layout: "layout"
-		});
-	});
-};
+});
+module.exports = productRouter;

@@ -1,6 +1,5 @@
 [
 	{
-		"_id": "1",
 		"name": "Winter Coat from France",
 		"image": "http://api.demo.nordiccoder.com/images/product_1.png",
 		"thumbnail": "http://api.demo.nordiccoder.com/images/product_1.png",
@@ -18,7 +17,6 @@
 		]
 	},
 	{
-		"_id": "2",
 		"name": "Italy Bag",
 		"image": "http://api.demo.nordiccoder.com/images/product_2.png",
 		"thumbnail": "http://api.demo.nordiccoder.com/images/product_2.png",
@@ -36,7 +34,6 @@
 		]
 	},
 	{
-		"_id": "3",
 		"name": "Coat from France",
 		"image": "http://api.demo.nordiccoder.com/images/product_3.png",
 		"thumbnail": "http://api.demo.nordiccoder.com/images/product_3.png",
@@ -54,7 +51,6 @@
 		]
 	},
 	{
-		"_id": "4",
 		"name": "Travel Bag from German",
 		"image": "http://api.demo.nordiccoder.com/images/product_4.png",
 		"thumbnail": "http://api.demo.nordiccoder.com/images/product_4.png",
@@ -72,7 +68,6 @@
 		]
 	},
 	{
-		"_id": "5",
 		"name": "Modern Shoe from Japan",
 		"image": "http://api.demo.nordiccoder.com/images/product_5.png",
 		"thumbnail": "http://api.demo.nordiccoder.com/images/product_5.png",
@@ -90,7 +85,6 @@
 		]
 	},
 	{
-		"_id": "6",
 		"name": "Italy Glasses",
 		"image": "http://api.demo.nordiccoder.com/images/product_6.png",
 		"thumbnail": "http://api.demo.nordiccoder.com/images/product_6.png",
@@ -108,7 +102,6 @@
 		]
 	},
 	{
-		"_id": "7",
 		"name": "France Coat",
 		"image": "http://api.demo.nordiccoder.com/images/product_7.png",
 		"thumbnail": "http://api.demo.nordiccoder.com/images/product_7.png",
@@ -126,7 +119,6 @@
 		]
 	},
 	{
-		"_id": "8",
 		"name": "Wool Pocket",
 		"image": "http://api.demo.nordiccoder.com/images/product_8.png",
 		"thumbnail": "http://api.demo.nordiccoder.com/images/product_8.png",
@@ -144,7 +136,6 @@
 		]
 	},
 	{
-		"_id": "9",
 		"name": "Winter Coat from France",
 		"image": "http://api.demo.nordiccoder.com/images/product_1.png",
 		"thumbnail": "http://api.demo.nordiccoder.com/images/product_1.png",
@@ -162,7 +153,6 @@
 		]
 	},
 	{
-		"_id": "10",
 		"name": "Italy Bag",
 		"image": "http://api.demo.nordiccoder.com/images/product_2.png",
 		"thumbnail": "http://api.demo.nordiccoder.com/images/product_2.png",
