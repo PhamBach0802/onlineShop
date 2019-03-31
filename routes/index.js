@@ -36,7 +36,7 @@ router.get("/addNewCategory", function(req, res, next) {
 	});
 });
 
-router.post('/addNewUser',function(req, res) {
+router.post('/addNewUser',upload.single('avatar'),function(req, res) {
 
 	const file = req.file.filename;
 	const userDetails = req.body;

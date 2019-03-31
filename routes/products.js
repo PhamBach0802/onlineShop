@@ -4,9 +4,9 @@ var express = require("express");
 var productRouter = express.Router();
 
 productRouter.get("/products", function(req, res, next) {
-	var obj = JSON.parse(req.query.filter);
-	console.log(obj);
-	if(req.query != 'undefined'){
+	if(req.query.filter != undefined){
+		var obj = JSON.parse(req.query.filter);
+		console.log(req.query.filter);
 		Product.find({})
 				.where("salePrice").equals(obj.where.salePrice)
 				.limit(obj.limit)
